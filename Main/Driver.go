@@ -1,8 +1,7 @@
-package main
+package marsrover
 
-import (
+/*import (
 	"fmt"
-	"marsRover"
 )
 
 func main() {
@@ -18,4 +17,4 @@ func main() {
 		return
 	}
 	fmt.Println(result)
-}
+}*/

@@ -1,17 +1,20 @@
-package marsrover
+package main
 
 import "testing"
 
 var isLesserThantestCases = []struct {
+	name            string
 	coordinate      Coordinate
 	otherCoordinate Coordinate
 	expectedResult  bool
 }{
 	{
+		"true case",
 		Coordinate{1, 1},
 		Coordinate{2, 1},
 		true,
 	}, {
+		"false case",
 		Coordinate{3, 1},
 		Coordinate{2, 1},
 		false,
@@ -35,10 +38,12 @@ var isGreaterThantestCases = []struct {
 
 func TestIsLessThan(t *testing.T) {
 	for _, testCase := range isLesserThantestCases {
-		result := testCase.coordinate.isLesserThan(testCase.otherCoordinate)
-		if result != testCase.expectedResult {
-			t.Error("expected ", testCase.expectedResult, "got ", result)
-		}
+		t.Run(testCase.name, func(t *testing.T) {
+			result := testCase.coordinate.isLesserThan(testCase.otherCoordinate)
+			if result != testCase.expectedResult {
+				t.Error("expected ", testCase.expectedResult, "got ", result)
+			}
+		})
 	}
 }
 

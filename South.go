@@ -1,4 +1,4 @@
-package marsrover
+package main
 
 type South struct {
 	stepForXAxis int

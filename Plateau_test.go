@@ -1,4 +1,4 @@
-package marsrover
+package main
 
 import (
 	"testing"
@@ -23,9 +23,9 @@ var testCases = []struct {
 }
 
 func TestIsinRange(t *testing.T) {
-	topRight:=Coordinate{0,0}
-	bottomLeft:=Coordinate{5,5}
-	plateau:=GeneratePlateau(topRight, bottomLeft)
+	topRight := Coordinate{0, 0}
+	bottomLeft := Coordinate{5, 5}
+	plateau := GeneratePlateau(topRight, bottomLeft)
 	for _, testCase := range testCases {
 		result := plateau.isInRange(testCase.coordinate)
 		if result != testCase.expectedResult {

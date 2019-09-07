@@ -1,4 +1,4 @@
-package marsrover
+package main
 
 import (
 	"errors"
@@ -7,9 +7,9 @@ import (
 )
 
 type Rover struct {
-	plateau     Plateau
-	direction   Direction
-	coordinates Coordinate
+	Plateau    Plateau    `json:"plateau"`
+	Direction  Direction  `json:"direction"`
+	Coordinate Coordinate `json:"coordinates"`
 }
 
 func GenerateRover(plateau Plateau, coordinate Coordinate, direction Direction) Rover {
@@ -37,19 +37,19 @@ func (rover *Rover) Run(s string) (string, error) {
 }
 
 func (rover *Rover) turnLeft() {
-	rover.direction = rover.direction.left()
+	rover.Direction = rover.Direction.left()
 }
 func (rover *Rover) turnRight() {
-	rover.direction = rover.direction.right()
+	rover.Direction = rover.Direction.right()
 }
 
 func (rover *Rover) move() {
-	coordinatesAfterMove := rover.coordinates.GenerateWithStepSize(rover.direction.stepSizeForX(), rover.direction.stepSizeForY())
-	if rover.plateau.isInRange(coordinatesAfterMove) {
-		rover.coordinates = coordinatesAfterMove
+	coordinatesAfterMove := rover.Coordinate.GenerateWithStepSize(rover.Direction.stepSizeForX(), rover.Direction.stepSizeForY())
+	if rover.Plateau.isInRange(coordinatesAfterMove) {
+		rover.Coordinate = coordinatesAfterMove
 	}
 }
 
 func (rover Rover) toString() string {
-	return fmt.Sprint(rover.coordinates, " ", rover.direction.toString())
+	return fmt.Sprint(rover.Coordinate, " ", rover.Direction.toString())
 }

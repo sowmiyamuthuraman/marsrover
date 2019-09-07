@@ -1,4 +1,4 @@
-package marsrover
+package main
 
 type West struct{
 	stepForXAxis int

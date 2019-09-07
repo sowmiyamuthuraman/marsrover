@@ -2,7 +2,7 @@
 // Source: Direction.go
 
 // Package marsrover is a generated GoMock package.
-package marsrover
+package main
 
 import (
 	gomock "github.com/golang/mock/gomock"

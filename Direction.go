@@ -1,4 +1,4 @@
-package marsrover
+package main
 
 type Direction interface {
 	right() Direction

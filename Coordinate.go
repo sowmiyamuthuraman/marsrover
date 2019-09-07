@@ -1,12 +1,12 @@
-package marsrover
+package main
 
 type Coordinate struct {
-	xPosition int
-	yPosition int
+	XPosition int `json: xPosition`
+	YPosition int `json: yPosition`
 }
 
 func (coordinate Coordinate) GenerateWithStepSize(x int, y int) Coordinate {
-	return GenerateCoordinate(coordinate.xPosition+x, coordinate.yPosition+y)
+	return GenerateCoordinate(coordinate.XPosition+x, coordinate.YPosition+y)
 }
 
 func GenerateCoordinate(x int, y int) Coordinate {
@@ -14,9 +14,9 @@ func GenerateCoordinate(x int, y int) Coordinate {
 }
 
 func (coordinate Coordinate) isLesserThan(otherCoordinate Coordinate) bool {
-	return (coordinate.xPosition <= otherCoordinate.xPosition) && (coordinate.yPosition <= otherCoordinate.yPosition)
+	return (coordinate.XPosition <= otherCoordinate.XPosition) && (coordinate.YPosition <= otherCoordinate.YPosition)
 }
 
 func (coordinate Coordinate) isGreaterThan(otherCoordinate Coordinate) bool {
-	return (coordinate.xPosition >= otherCoordinate.xPosition) && (coordinate.yPosition >= otherCoordinate.yPosition)
+	return (coordinate.XPosition >= otherCoordinate.XPosition) && (coordinate.YPosition >= otherCoordinate.YPosition)
 }
